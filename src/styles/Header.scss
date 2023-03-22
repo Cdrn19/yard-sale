@@ -1,0 +1,128 @@
+.main-nav {
+	display: flex;
+	justify-content: space-between;
+  height: 54px;
+	padding: 0 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.046805);
+
+  .main-nav__button {
+    display: none;
+  }
+
+  .main-nav__left {
+    display: flex;
+
+    a {
+      align-self: center;
+
+      img {
+        width: 144px;
+        margin-left: 1.75px;
+      }
+    }
+  }
+
+  .main-nav__left,
+  .main-nav__right {
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+
+      li a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .main-nav__left {
+    ul {
+      margin-left: 52.91px;    
+      
+      li a {
+        border: 1px solid var(--white);
+        padding: 5px 14px 6px;
+        border-radius: 10px;
+        color: var(--very-light-pink);
+
+        &:hover {
+          border: 1px solid var(--hospital-green);
+          color: var(--hospital-green);
+        }
+      }
+    }  
+  }
+
+  .main-nav__right {
+    ul {
+      height: 100%;
+
+      li {
+
+        a {
+          font-size: var(--sm);
+          font-weight: 700;
+          color: var(--hospital-green);
+          margin-right: 30.5px;
+        }
+
+        p {
+          display: inline-block;
+          font-size: var(--sm);
+          font-weight: 300;
+          margin-right:5px ;
+        }
+
+        p + img {
+          width: 4.5px;
+          transform: rotate(90deg);
+          margin-right: 30.5px;
+        }
+
+        & {
+        position: relative;
+
+          div {
+            width: 16px;
+            height: 16px;
+            background-color: var(--hospital-green);
+            border-radius: 50%;
+            font-size: var(--sm);
+            font-weight: bold;
+            position: absolute;
+            top: -6px;
+            right: -3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+
+      li.main-nav__right--shopping-cart {
+        margin-right: 7.5px;
+      }
+    }
+  }
+  @media (max-width: 938px) {
+    .main-nav__button {
+      all: unset;
+      display: block;
+    }
+    
+    .main-nav__left ul {
+      display: none;
+    }
+  
+    .main-nav__right--sing-in,
+    .main-nav__right--email {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1010px) {
+  .main-nav {
+    padding: 0 11px 0 17.25px;
+  }
+}
