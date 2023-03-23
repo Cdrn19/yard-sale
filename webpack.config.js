@@ -17,10 +17,13 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
     alias: {
+      "@api": path.resolve(__dirname, "src/service"),
       "@components": path.resolve(__dirname, "src/components"),
       "@containers": path.resolve(__dirname, "src/containers"),
+      "@hooks": path.resolve(__dirname, "src/hooks"),
       "@icons": path.resolve(__dirname, "src/assets/icons"),
       "@logos": path.resolve(__dirname, "src/assets/logos"),
+      "@pages": path.resolve(__dirname, "srcpages"),
       "@routes": path.resolve(__dirname, "src/routes"),
       "@styles": path.resolve(__dirname, "src/styles"),
     },
@@ -62,6 +65,10 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
+      "process.env": {
+        API: JSON.stringify(process.env.API),
+        VERSION: JSON.stringify(process.env.VERSION),
+      },
     }),
   ],
   optimization: {
