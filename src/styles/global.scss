@@ -4,6 +4,8 @@
 	--very-light-pink: #C7C7C7;
 	--text-input-field: #F7F7F7;
 	--hospital-green: #ACD9B2;
+	--input-error-data: #FFF2f2;
+	--text-error-field: #D25050;
 	--sm: 14px;
 	--md: 16px;
 	--lg: 18px;
@@ -17,4 +19,5 @@
 
 body {
 	font-family: 'Quicksand', sans-serif;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
