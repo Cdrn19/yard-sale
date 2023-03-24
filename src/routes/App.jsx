@@ -1,12 +1,20 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ProviderAuth } from "@hooks/useAuth";
 import Layout from "@containers/Layout";
+import Login from "@pages/Login";
 import "@styles/global.scss";
 
 const App = () => {
   return (
-    <Router>
-      <Layout></Layout>
-    </Router>
+    <BrowserRouter>
+      <ProviderAuth>
+        <Layout>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </Layout>
+      </ProviderAuth>
+    </BrowserRouter>
   );
 };
 
