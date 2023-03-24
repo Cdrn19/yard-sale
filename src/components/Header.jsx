@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useAuth } from "@hooks/useAuth";
 import "@styles/Header.scss";
 
@@ -43,7 +44,7 @@ const Header = () => {
         <ul>
           {auth.user === null ? (
             <li className="main-nav__right--sign-in">
-              <a href="/login">Sign in</a>
+              <Link to="/login">Sign in</Link>
             </li>
           ) : (
             <li className="main-nav__right--email">
