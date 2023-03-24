@@ -1,3 +1,4 @@
+import { useAuth } from "@hooks/useAuth";
 import "@styles/Header.scss";
 
 import menu from "@icons/icon_menu.svg";
@@ -6,6 +7,8 @@ import shoppingCars from "@icons/icon_shopping_cart.svg";
 import arrow from "@icons/arrow.svg";
 
 const Header = () => {
+  const auth = useAuth();
+
   return (
     <nav className="main-nav">
       <button className="main-nav__button">
@@ -38,13 +41,16 @@ const Header = () => {
       </div>
       <div className="main-nav__right">
         <ul>
-          {/* <li className="main-nav__right--sign-in">
-            <a href="/login">Sign in</a>
-          </li> */}
-          <li className="main-nav__right--email">
-            <p>camilayokoo@gmail.com</p>
-            <img src={arrow} alt="arrow" />
-          </li>
+          {auth.user === null ? (
+            <li className="main-nav__right--sign-in">
+              <a href="/login">Sign in</a>
+            </li>
+          ) : (
+            <li className="main-nav__right--email">
+              <p>{auth.user.email}</p>
+              <img src={arrow} alt="arrow" />
+            </li>
+          )}
           <li className="main-nav__right--shopping-cart">
             <img src={shoppingCars} alt="shopping cart" />
             <div>6</div>
