@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@hooks/useAuth";
 import "@styles/Login.scss";
@@ -11,6 +11,10 @@ const Login = () => {
   const auth = useAuth();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    auth.user && navigate("/");
+  }, [auth.error.length === 0]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(form.current);
@@ -19,9 +23,7 @@ const Login = () => {
       password: formData.get("password"),
     };
     if (data.email && data.password) {
-      await auth
-        .signIn(data)
-        .then(() => auth.error.length !== 0 && navigate("/"));
+      await auth.signIn(data);
       setToggle([false, false]);
     } else if (!data.email || !data.password) {
       if (!data.password & !data.email) {
