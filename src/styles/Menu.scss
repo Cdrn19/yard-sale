@@ -1,0 +1,56 @@
+.Menu {
+	width: 153px;
+	height: auto;
+	border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.119789);
+	padding: 25px 19px 26px 18px;
+	background-color: #ffffff;
+	position: absolute;
+	top: 55px;
+	right: 105px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      text-align: end;
+      margin-left: 6px;
+      font-weight: 700;
+      
+      a {
+        display: inline-block;
+        text-decoration: none;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        margin-bottom: 30px;
+
+        a {
+          color: var(--back);
+        }
+      }
+
+      &:last-child {
+        padding-top: 20px;
+        border: {
+          top: 1px solid var(--very-light-pink);
+          opacity: 0.1;
+        } 
+
+        & button {
+          all: unset;
+          cursor: pointer;
+          color: var(--hospital-green);
+          font-size: var(--sm);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 938px) {
+    display: none;
+  }
+}
