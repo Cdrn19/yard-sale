@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@hooks/useAuth";
 import Menu from "@components/Menu";
+import MobileMenu from "@containers/MobileMenu";
 import "@styles/Header.scss";
 
 import menu from "@icons/icon_menu.svg";
@@ -11,7 +12,12 @@ import arrow from "@icons/arrow.svg";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
+  const [mobileToggle, setMobileToggle] = useState(false);
   const auth = useAuth();
+
+  const handleMobileToggle = () => {
+    setMobileToggle(!mobileToggle);
+  };
 
   const handleToggle = () => {
     setToggle(!toggle);
@@ -19,7 +25,7 @@ const Header = () => {
 
   return (
     <nav className="main-nav">
-      <button className="main-nav__button">
+      <button className="main-nav__button" onClick={handleMobileToggle}>
         <img src={menu} alt="menu" className="main-nav__button-menu" />
       </button>
       <div className="main-nav__left">
@@ -66,6 +72,12 @@ const Header = () => {
         </ul>
       </div>
       {toggle && <Menu handleToggle={() => handleToggle()} />}
+      {mobileToggle && (
+        <MobileMenu
+          handleMobileToggle={() => handleMobileToggle()}
+          auth={auth}
+        />
+      )}
     </nav>
   );
 };
