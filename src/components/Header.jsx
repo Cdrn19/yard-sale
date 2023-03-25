@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@hooks/useAuth";
+import Menu from "@components/Menu";
 import "@styles/Header.scss";
 
 import menu from "@icons/icon_menu.svg";
@@ -8,7 +10,12 @@ import shoppingCars from "@icons/icon_shopping_cart.svg";
 import arrow from "@icons/arrow.svg";
 
 const Header = () => {
+  const [toggle, setToggle] = useState(false);
   const auth = useAuth();
+
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
 
   return (
     <nav className="main-nav">
@@ -47,7 +54,7 @@ const Header = () => {
               <Link to="/login">Sign in</Link>
             </li>
           ) : (
-            <li className="main-nav__right--email">
+            <li className="main-nav__right--email" onClick={handleToggle}>
               <p>{auth.user.email}</p>
               <img src={arrow} alt="arrow" />
             </li>
@@ -58,6 +65,7 @@ const Header = () => {
           </li>
         </ul>
       </div>
+      {toggle && <Menu handleToggle={() => handleToggle()} />}
     </nav>
   );
 };
