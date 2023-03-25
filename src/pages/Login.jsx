@@ -54,6 +54,7 @@ const Login = () => {
             name="email"
             autoComplete="on"
             placeholder="hello@yardsale.com"
+            id="email"
             className={`login__form--input-mail input ${
               (auth.error === 401 || toggle[0]) && "error"
             }
@@ -72,6 +73,7 @@ const Login = () => {
             name="password"
             autoComplete="on"
             placeholder="*********"
+            id="password"
             className={`login__form--input-password input ${
               (auth.error === 401 || toggle[1]) && "error"
             }`}
