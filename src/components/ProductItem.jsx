@@ -20,7 +20,7 @@ const ProductItem = ({ product }) => {
           <p>{product?.price} USD</p>
           <p>{product?.title}</p>
         </div>
-        <figure onClick={() => handleClick(product)}>
+        <figure>
           {state?.cart.includes(product) ? (
             <img
               className="Product-info__added"
@@ -32,6 +32,7 @@ const ProductItem = ({ product }) => {
               className="product-info__add"
               src={iconAddToCart}
               alt="add to cart"
+              onClick={() => handleClick(product)}
             />
           )}
         </figure>
