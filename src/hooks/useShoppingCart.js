@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, useContext, createContext } from "react";
 import PropTypes from "prop-types";
 
 const CartStateContext = createContext();
@@ -11,6 +11,10 @@ export function ProviderCart({ children }) {
     </CartStateContext.Provider>
   );
 }
+
+export const useShoppingCart = () => {
+  return useContext(CartStateContext);
+};
 
 const initialState = {
   cart: [],

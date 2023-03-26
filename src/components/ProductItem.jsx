@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
-import useProvideCart from "@hooks/useShoppingCart";
+import { useShoppingCart } from "@hooks/useShoppingCart";
 import "@styles/ProductItem.scss";
 
 import iconAddToCart from "@icons/bt_add_to_cart.svg";
 import iconAddedToCart from "@icons/bt_added_to_cart.svg";
 
 const ProductItem = ({ product }) => {
-  const { addToCart, state } = useProvideCart();
+  const { addToCart, state } = useShoppingCart();
 
   const handleClick = (item) => {
     addToCart(item);

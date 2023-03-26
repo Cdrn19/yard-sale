@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useShoppingCart } from "@hooks/useShoppingCart";
 import { useAuth } from "@hooks/useAuth";
 import Menu from "@components/Menu";
 import MobileMenu from "@containers/MobileMenu";
@@ -13,6 +14,7 @@ import arrow from "@icons/arrow.svg";
 const Header = () => {
   const [toggle, setToggle] = useState(false);
   const [mobileToggle, setMobileToggle] = useState(false);
+  const { state } = useShoppingCart();
   const auth = useAuth();
 
   const handleMobileToggle = () => {
@@ -67,7 +69,7 @@ const Header = () => {
           )}
           <li className="main-nav__right--shopping-cart">
             <img src={shoppingCars} alt="shopping cart" />
-            <div>6</div>
+            {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
           </li>
         </ul>
       </div>
