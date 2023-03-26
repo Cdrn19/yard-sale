@@ -1,0 +1,22 @@
+.product-list__container {
+	width: 100%;
+	display: flex;
+	gap: 22px;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 0 52px;
+
+	@media (max-width: 938px) {
+		gap: 11px;
+		padding: 0 18px;
+	}	
+
+	@media (max-width: 640px) {
+		gap: 3px;
+		padding: 0 15px;
+	}
+
+	@media (max-width: 524px) {
+		justify-content: center;
+	}
+}
