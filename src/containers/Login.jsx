@@ -7,15 +7,18 @@ import "@styles/Login.scss";
 import logo from "@logos/logo_yard_sale.svg";
 import close from "@icons/icon_close.png";
 
-const Login = ({ handleLoginToggle }) => {
+const Login = ({ handleLoginToggle, width }) => {
   const [toggle, setToggle] = useState([false, false]);
   const form = useRef(null);
   const auth = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    auth.user && navigate("/");
-  }, [auth.error.length === 0]);
+    if (auth.user) {
+      navigate("/");
+      width && handleLoginToggle();
+    }
+  }, [auth.user]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -102,6 +105,7 @@ const Login = ({ handleLoginToggle }) => {
 
 Login.propTypes = {
   handleLoginToggle: PropTypes.func,
+  width: PropTypes.bool,
 };
 
 export default Login;

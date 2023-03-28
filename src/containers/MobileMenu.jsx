@@ -13,7 +13,7 @@ const MobileMenu = ({ handleMobileToggle, auth }) => {
     setLoginToggle(!LoginToggle);
   };
 
-  const width = window.innerWidth;
+  const width = window.innerWidth <= 413;
 
   return (
     <>
@@ -51,15 +51,15 @@ const MobileMenu = ({ handleMobileToggle, auth }) => {
           <div className="mobile-nav__down">
             <ul>
               {auth.user === null ? (
-                width > 413 ? (
+                width ? (
+                  <li className="mobile-nav__down--login-in">
+                    <button onClick={() => handleLoginToggle()}>Log in</button>
+                  </li>
+                ) : (
                   <li className="mobile-nav__down--login-in">
                     <Link to="/signin" onClick={() => handleMobileToggle()}>
                       Log in
                     </Link>
-                  </li>
-                ) : (
-                  <li className="mobile-nav__down--login-in">
-                    <button onClick={() => handleLoginToggle()}>Log in</button>
                   </li>
                 )
               ) : (
@@ -86,7 +86,9 @@ const MobileMenu = ({ handleMobileToggle, auth }) => {
           </div>
         </div>
       </nav>
-      {LoginToggle && <Login handleLoginToggle={() => handleLoginToggle()} />}
+      {LoginToggle && (
+        <Login handleLoginToggle={() => handleLoginToggle()} width={width} />
+      )}
     </>
   );
 };
