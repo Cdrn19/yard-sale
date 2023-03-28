@@ -59,7 +59,7 @@ const Header = () => {
         <ul>
           {auth.user === null ? (
             <li className="main-nav__right--sign-in">
-              <Link to="/login">Sign in</Link>
+              <Link to="/signin">Sign in</Link>
             </li>
           ) : (
             <li className="main-nav__right--email" onClick={handleToggle}>
