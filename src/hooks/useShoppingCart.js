@@ -29,9 +29,9 @@ const useProvideCart = () => {
     });
   };
 
-  const removeFromCart = (indexValue) => {
+  const removeFromCart = (id) => {
     setState({
-      cart: state.cart.filter((_, index) => index !== indexValue),
+      cart: state.cart.filter((product) => product.id !== id),
     });
   };
 
