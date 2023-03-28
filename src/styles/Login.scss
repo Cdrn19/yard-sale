@@ -1,6 +1,6 @@
 .login {
 	width: 100%;
-	height: 100vh;
+  height: calc( 100vh - 54px);
 	display: grid;
 	place-items: center;
 
@@ -8,6 +8,18 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     width: 339px;
+
+    .login-container__button {
+      all: unset;
+      display: none;
+      position: absolute;
+      right: 18px;
+      top: 21.86px;
+
+      img {
+        width: 18px;
+      }
+    }
 
     .login-container__logo {
       width: 150px;
@@ -102,6 +114,22 @@
       .login-container__logo {
         display: block;
       }
-    }
+    } 
   }
-}
+
+  @media (max-width: 413px) {
+    position: absolute;
+    background-color: white;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+
+    .login-container {
+      .login-container__button {
+        display: block;
+      }
+    }
+  } 
+}  

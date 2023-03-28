@@ -57,6 +57,13 @@
           }
         }
         
+        li button {
+          all: unset;
+          color: var(--hospital-green);
+          font-size: 14px;
+          font-weight: 700;
+        }
+        
         .mobile-nav__down--login-in {
           color: var(--hospital-green);
           font-size: 14px;
@@ -88,10 +95,16 @@
   }
   @media (max-width: 413px) {
     width: 100vw;
+    height: 100vh;
     top: 0;
     left: 0;
 
     .mobile-nav--container {
+      .mobile-nav__down ul {
+        display: block;
+        position: absolute;
+        bottom: 39px;
+      }
       .mobile-nav__button {
         display: block;
       }
