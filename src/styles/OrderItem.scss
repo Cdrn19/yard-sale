@@ -1,0 +1,33 @@
+.order-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  width: 100%;
+  height: auto;
+
+  figure  {
+    border-radius: 20px;
+    margin-right: 17px;
+    img {
+      width: 76px;
+      height: 76px;
+    }
+  }
+  
+  .order-item--title {
+    font-size: var(--sm);
+    font-weight: 400;
+  }
+
+  .order-item--price {
+      font-size: var(--md);
+      font-weight: 700;
+  }
+  
+
+  .order-item__icon-close {
+    justify-self:flex-end ;
+    margin-left: 26px;
+  }
+
+}

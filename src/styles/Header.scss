@@ -12,6 +12,13 @@
   .main-nav__left {
     display: flex;
 
+    h1 {
+      align-self: center;
+      font-size: var(--md);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
     a {
       align-self: center;
 
@@ -58,6 +65,7 @@
       height: 100%;
 
       li {
+        cursor: pointer;
 
         a {
           font-size: var(--sm);
