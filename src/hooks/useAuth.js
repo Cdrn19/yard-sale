@@ -18,8 +18,10 @@ export const useAuth = () => {
 function useProvideAuth() {
   const [user, setUser] = useState(null);
   const [error, setError] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const signIn = async (credentials) => {
+    setIsLoading(true);
     await axios
       .post(endPoints.auth.login, credentials, {
         headers: {
@@ -28,21 +30,23 @@ function useProvideAuth() {
         },
       })
       .then(async function ({ data }) {
+        setError([]);
+        setIsLoading(false);
         const token = data.access_token;
         if (token) {
           Cookie.set("token", token, { expires: 5 });
           axios.defaults.headers.Authorization = `Bearer ${token}`;
           const { data: user } = await axios.get(endPoints.auth.profile);
           setUser(user);
-          setError([]);
         }
       })
       .catch(({ response }) => {
+        setIsLoading(false);
         setError(response.status);
       });
   };
 
-  return { user, error, signIn };
+  return { user, error, isLoading, signIn };
 }
 
 ProviderAuth.propTypes = {

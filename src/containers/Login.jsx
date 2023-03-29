@@ -28,7 +28,7 @@ const Login = ({ handleLoginToggle, width }) => {
       password: formData.get("password"),
     };
     if (data.email && data.password) {
-      await auth.signIn(data);
+      !auth.isLoading && auth.signIn(data);
       setToggle([false, false]);
     } else if (!data.email || !data.password) {
       if (!data.password & !data.email) {
