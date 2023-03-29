@@ -6,11 +6,12 @@
   height: auto;
 
   figure  {
-    border-radius: 20px;
     margin-right: 17px;
     img {
+      border-radius: 20px;
       width: 76px;
       height: 76px;
+      object-fit: cover;
     }
   }
   
