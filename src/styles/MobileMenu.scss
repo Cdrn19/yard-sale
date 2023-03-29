@@ -28,7 +28,6 @@
     }
 
     .mobile-nav__up {
-
       ul {
         list-style: none;
         
@@ -94,6 +93,7 @@
       }   
     }
   }
+
   @media (max-width: 413px) {
     width: 100vw;
     height: 100vh;
@@ -106,11 +106,13 @@
         position: absolute;
         bottom: 39px;
       }
+
       .mobile-nav__button {
         display: block;
       }
     }
   }
+
   @media (min-width: 939px) {
     display: none;
   }
