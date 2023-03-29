@@ -6,7 +6,7 @@ const OrderItem = ({ product, handleRemove }) => {
   return (
     <div className="order-item">
       <figure>
-        <img src={product.image} alt={product.title} />
+        <img src={product.images[0]} alt={product.title} />
       </figure>
       <p className="order-item--title">{product.title}</p>
       <p className="order-item--price">{product.price} USD</p>
