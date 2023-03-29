@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useShoppingCart } from "@hooks/useShoppingCart";
 import { useAuth } from "@hooks/useAuth";
 import Menu from "@components/Menu";
@@ -52,22 +52,22 @@ const Header = () => {
         )}
         <ul>
           <li>
-            <a href="/">All</a>
+            <NavLink to="/">All</NavLink>
           </li>
           <li>
-            <a href="/">Clothes</a>
+            <NavLink to="/clothes">Clothes</NavLink>
           </li>
           <li>
-            <a href="/">Electronics</a>
+            <NavLink to="/electronics">Electronics</NavLink>
           </li>
           <li>
-            <a href="/">Furnitures</a>
+            <NavLink to="/furnitures">Furnitures</NavLink>
           </li>
           <li>
-            <a href="/">Toys</a>
+            <NavLink to="/toys">Toys</NavLink>
           </li>
           <li>
-            <a href="/">Others</a>
+            <NavLink to="/other">Others</NavLink>
           </li>
         </ul>
       </div>
@@ -76,7 +76,9 @@ const Header = () => {
           {auth.user === null ? (
             <li
               className="main-nav__right--sign-in"
-              onClick={() =>{handleOrderToggle, setOrderToggle(false)}}
+              onClick={() => {
+                handleOrderToggle, setOrderToggle(false);
+              }}
             >
               <Link to="/signin">Sign in</Link>
             </li>

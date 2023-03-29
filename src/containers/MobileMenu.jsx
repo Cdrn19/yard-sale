@@ -29,22 +29,22 @@ const MobileMenu = ({ handleMobileToggle, auth }) => {
           <div className="mobile-nav__up">
             <ul>
               <li>
-                <a href="/">All</a>
+                <Link to="/">All</Link>
               </li>
               <li>
-                <a href="/">Clothes</a>
+                <Link to="/clothes">Clothes</Link>
               </li>
               <li>
-                <a href="/">Electronics</a>
+                <Link to="/electronics">Electronics</Link>
               </li>
               <li>
-                <a href="/">Furnitures</a>
+                <Link to="/furnitures">Furnitures</Link>
               </li>
               <li>
-                <a href="/">Toys</a>
+                <Link to="/toys">Toys</Link>
               </li>
               <li>
-                <a href="/">Others</a>
+                <Link to="/other">Others</Link>
               </li>
             </ul>
           </div>

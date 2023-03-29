@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import ProductList from "@containers/ProductList";
 import "@styles/Search.scss";
@@ -40,6 +41,28 @@ const Search = ({ products }) => {
           </div>
         </div>
         <div className="search__dropdown">{}</div>
+        <div className="search__nav">
+          <ul>
+            <li>
+              <NavLink to="/">All</NavLink>
+            </li>
+            <li>
+              <NavLink to="/clothes">Clothes</NavLink>
+            </li>
+            <li>
+              <NavLink to="/electronics">Electronics</NavLink>
+            </li>
+            <li>
+              <NavLink to="/furnitures">Furnitures</NavLink>
+            </li>
+            <li>
+              <NavLink to="/toys">Toys</NavLink>
+            </li>
+            <li>
+              <NavLink to="/other">Others</NavLink>
+            </li>
+          </ul>
+        </div>
         <div className="search__container--filter">
           <h5>Order:</h5>
           <div className="search__button--filter">
