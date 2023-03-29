@@ -29,6 +29,35 @@
     }
   }
 
+  .search__nav {
+    display: none;
+    width: 100%;
+    overflow-x: scroll;    
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      list-style: none;   
+      
+      li a {
+        text-decoration: none;
+        border: 1px solid var(--white);
+        padding: 5px 14px 6px;
+        border-radius: 10px;
+        color: var(--very-light-pink);
+
+        &.active {
+          border: 1px solid var(--hospital-green);
+          color: var(--hospital-green);
+        }
+      }
+    }    
+  }
+
   .search__container--filter {
     display: flex;
     align-items: center;
@@ -67,5 +96,11 @@
     flex-wrap: wrap;
     justify-content: center;
     padding: 13px 18px 24px;
+
+    .search__nav {
+      display: flex;
+      height: 34px;
+      margin: 10px 0;
+    }
 	}      
 }

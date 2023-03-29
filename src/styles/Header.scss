@@ -52,7 +52,7 @@
         border-radius: 10px;
         color: var(--very-light-pink);
 
-        &:hover {
+        &.active {
           border: 1px solid var(--hospital-green);
           color: var(--hospital-green);
         }
