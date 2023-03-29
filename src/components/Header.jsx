@@ -4,6 +4,7 @@ import { useShoppingCart } from "@hooks/useShoppingCart";
 import { useAuth } from "@hooks/useAuth";
 import Menu from "@components/Menu";
 import MobileMenu from "@containers/MobileMenu";
+import MyOrder from "@containers/MyOrder";
 import "@styles/Header.scss";
 
 import menu from "@icons/icon_menu.svg";
@@ -14,16 +15,27 @@ import arrow from "@icons/arrow.svg";
 const Header = () => {
   const [toggle, setToggle] = useState(false);
   const [mobileToggle, setMobileToggle] = useState(false);
+  const [orderToggle, setOrderToggle] = useState(false);
   const { state } = useShoppingCart();
   const auth = useAuth();
 
   const handleMobileToggle = () => {
     setMobileToggle(!mobileToggle);
+    setOrderToggle(false);
   };
 
   const handleToggle = () => {
     setToggle(!toggle);
+    setOrderToggle(false);
   };
+
+  const handleOrderToggle = () => {
+    setOrderToggle(!orderToggle);
+    setToggle(false);
+    setMobileToggle(false);
+  };
+
+  const width = window.innerWidth <= 413;
 
   return (
     <nav className="main-nav">
@@ -31,9 +43,13 @@ const Header = () => {
         <img src={menu} alt="menu" className="main-nav__button-menu" />
       </button>
       <div className="main-nav__left">
-        <a href="/">
-          <img src={logo} alt="logo" className="main-nav__logo" />
-        </a>
+        {width & orderToggle ? (
+          <h1 onClick={handleOrderToggle}>Shopping Cart</h1>
+        ) : (
+          <a href="/">
+            <img src={logo} alt="logo" className="main-nav__logo" />
+          </a>
+        )}
         <ul>
           <li>
             <a href="/">All</a>
@@ -58,7 +74,10 @@ const Header = () => {
       <div className="main-nav__right">
         <ul>
           {auth.user === null ? (
-            <li className="main-nav__right--sign-in">
+            <li
+              className="main-nav__right--sign-in"
+              onClick={(handleToggle, handleOrderToggle)}
+            >
               <Link to="/signin">Sign in</Link>
             </li>
           ) : (
@@ -67,10 +86,15 @@ const Header = () => {
               <img src={arrow} alt="arrow" />
             </li>
           )}
-          <li className="main-nav__right--shopping-cart">
-            <img src={shoppingCars} alt="shopping cart" />
-            {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
-          </li>
+          {(!width || (width && !orderToggle)) && (
+            <li
+              className="main-nav__right--shopping-cart"
+              onClick={handleOrderToggle}
+            >
+              <img src={shoppingCars} alt="shopping cart" />
+              {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
+            </li>
+          )}
         </ul>
       </div>
       {toggle && <Menu handleToggle={() => handleToggle()} />}
@@ -80,6 +104,7 @@ const Header = () => {
           auth={auth}
         />
       )}
+      {orderToggle && <MyOrder width={width} />}
     </nav>
   );
 };
