@@ -76,7 +76,7 @@ const Header = () => {
           {auth.user === null ? (
             <li
               className="main-nav__right--sign-in"
-              onClick={(handleToggle, handleOrderToggle)}
+              onClick={() =>{handleOrderToggle, setOrderToggle(false)}}
             >
               <Link to="/signin">Sign in</Link>
             </li>
