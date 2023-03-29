@@ -28,6 +28,12 @@
   .my-order__content--product {
     margin-top: 13px;
     width: 100%;
+    height: calc(100% - 203px);
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+  }
   }
 
   .my-order__content--sum {
