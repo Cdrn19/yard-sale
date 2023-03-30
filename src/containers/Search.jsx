@@ -9,6 +9,26 @@ import arrow from "@icons/arrow.svg";
 
 const Search = ({ products }) => {
   const [value, setValue] = useState("");
+  const [toggle, setToggle] = useState(["Most Recent", false]);
+
+  const filterToggle = (button) => {
+    setToggle([button, !toggle[1]]);
+    filter(button);
+  };
+
+  const filter = (filter) => {
+    switch (filter) {
+      case "Price: low to high":
+        products.sort((a, b) => a.price - b.price);
+        break;
+      case "Price: high to low":
+        products.sort((a, b) => b.price - a.price);
+        break;
+      default:
+        products.sort((a, b) => b.creationAt - a.creationAt);
+        break;
+    }
+  };
 
   const onChange = (event) => {
     const value = event.target.value;
@@ -66,8 +86,29 @@ const Search = ({ products }) => {
         <div className="search__container--filter">
           <h5>Order:</h5>
           <div className="search__button--filter">
-            <button>Most recent</button>
+            <button onClick={() => filterToggle(toggle[0])}>{toggle[0]}</button>
             <img src={arrow} alt="arrow" />
+            <>
+              {toggle[1] && (
+                <ul>
+                  <li>
+                    <button onClick={() => filterToggle("Most recent")}>
+                      Most recent
+                    </button>
+                  </li>
+                  <li>
+                    <button onClick={() => filterToggle("Price: low to high")}>
+                      Price: low to high
+                    </button>
+                  </li>
+                  <li>
+                    <button onClick={() => filterToggle("Price: high to low")}>
+                      Price: high to low
+                    </button>
+                  </li>
+                </ul>
+              )}
+            </>
           </div>
         </div>
       </div>
