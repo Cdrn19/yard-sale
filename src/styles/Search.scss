@@ -61,20 +61,40 @@
   .search__container--filter {
     display: flex;
     align-items: center;
+    position: relative;
 
     h5 {
       font-size: var(--sm);
     }
 
+    button {
+      all: unset;
+      font-weight: 400;
+      font-size: var(--sm);
+      cursor: pointer;
+    }
+    
+    ul {
+      width: 134px;
+      list-style: none;
+      position: absolute;
+      border-radius: 5px;
+      background-color: var(--white);
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.119789);
+      padding: 9px;
+      margin-top: 3px;
+
+      li {
+        text-decoration: none;
+
+        button:hover {
+          font-weight: 700;
+        }
+      }
+    }
+
     .search__button--filter {
       margin-left: 4px;
-
-      button {
-        all: unset;
-        font-weight: 400;
-        font-size: var(--sm);
-        cursor: pointer;
-      }
 
       img {
         width: 6px;
