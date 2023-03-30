@@ -1,11 +1,14 @@
+import { useParams } from "react-router-dom";
 import Search from "@containers/Search";
 import endPoints from "@api";
 import useGetProducts from "@hooks/useGetProducts";
 
-const API = endPoints.products.all;
-
 const Home = () => {
-  const products = useGetProducts(API);
+  const { category } = useParams();
+  const api =
+    (!category && endPoints.products.all) ||
+    (category && endPoints.categories[category]);
+  const products = useGetProducts(api);
 
   return (
     <>
