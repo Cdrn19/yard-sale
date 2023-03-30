@@ -44,7 +44,7 @@ const MobileMenu = ({ handleMobileToggle, auth }) => {
                 <Link to="/toys">Toys</Link>
               </li>
               <li>
-                <Link to="/other">Others</Link>
+                <Link to="/others">Others</Link>
               </li>
             </ul>
           </div>

@@ -59,7 +59,7 @@ const Search = ({ products }) => {
               <NavLink to="/toys">Toys</NavLink>
             </li>
             <li>
-              <NavLink to="/other">Others</NavLink>
+              <NavLink to="/others">Others</NavLink>
             </li>
           </ul>
         </div>
