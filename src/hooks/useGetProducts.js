@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const useGetProducts = (API) => {
   const [products, setProducts] = useState([]);
+  const { category } = useParams();
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [category]);
 
   const fetchProducts = async () => {
     await axios
