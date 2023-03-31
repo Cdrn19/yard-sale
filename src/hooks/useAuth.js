@@ -1,4 +1,4 @@
-import { useState, useContext, createContext } from "react";
+import { useState, useContext, createContext, useEffect } from "react";
 import PropTypes from "prop-types";
 import Cookie from "js-cookie";
 import axios from "axios";
@@ -19,6 +19,25 @@ function useProvideAuth() {
   const [user, setUser] = useState(null);
   const [error, setError] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const token = Cookie.get("token");
+    const recoveryLogin = async () => {
+      setIsLoading(true);
+      axios.defaults.headers.Authorization = `Bearer ${token}`;
+      await axios
+        .get(endPoints.auth.profile)
+        .then(({ data: user }) => {
+          setUser(user);
+        })
+        .catch(({ response }) => {
+          setIsLoading(false);
+          setError(response.status);
+          Cookie.remove("token");
+        });
+    };
+    token && recoveryLogin(token);
+  }, []);
 
   const signIn = async (credentials) => {
     setIsLoading(true);
