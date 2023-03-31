@@ -97,7 +97,7 @@ const Header = () => {
           )}
         </ul>
       </div>
-      {toggle && <Menu handleToggle={() => handleToggle()} />}
+      {toggle && <Menu handleToggle={() => handleToggle()} auth={auth} />}
       {mobileToggle && (
         <MobileMenu
           handleMobileToggle={() => handleMobileToggle()}

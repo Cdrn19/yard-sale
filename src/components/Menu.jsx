@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "@styles/Menu.scss";
 
-const Menu = ({ handleToggle }) => {
+const Menu = ({ handleToggle, auth }) => {
   return (
     <div className="Menu">
       <ul>
@@ -17,7 +17,9 @@ const Menu = ({ handleToggle }) => {
           </Link>
         </li>
         <li>
-          <button onClick={() => handleToggle()}>Sign out</button>
+          <button onClick={() => auth.signOut() & handleToggle()}>
+            Sign out
+          </button>
         </li>
       </ul>
     </div>
@@ -26,6 +28,7 @@ const Menu = ({ handleToggle }) => {
 
 Menu.propTypes = {
   handleToggle: PropTypes.func,
+  auth: PropTypes.object,
 };
 
 export default Menu;

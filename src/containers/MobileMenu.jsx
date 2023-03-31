@@ -76,7 +76,9 @@ const MobileMenu = ({ handleMobileToggle, auth }) => {
                   </li>
                   <li className="mobile-nav__down--sign-out">
                     <p>{auth.user.email}</p>
-                    <button onClick={() => handleMobileToggle()}>
+                    <button
+                      onClick={() => auth.signOut() & handleMobileToggle()}
+                    >
                       Sign out
                     </button>
                   </li>

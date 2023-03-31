@@ -65,7 +65,13 @@ function useProvideAuth() {
       });
   };
 
-  return { user, error, isLoading, signIn };
+  const signOut = () => {
+    setUser(null);
+    Cookie.remove("token");
+    delete axios.defaults.headers.Authorization;
+  };
+
+  return { user, error, isLoading, signIn, signOut };
 }
 
 ProviderAuth.propTypes = {
