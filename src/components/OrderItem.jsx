@@ -21,7 +21,7 @@ const OrderItem = ({ product, handleRemove }) => {
 };
 
 OrderItem.propTypes = {
-  product: PropTypes.array,
+  product: PropTypes.object,
   handleRemove: PropTypes.func,
 };
 
