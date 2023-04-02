@@ -8,6 +8,11 @@
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.119789);
 	background-color: #ffffff;
   z-index: 1;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .product-info__button--close {
     all: unset;
@@ -28,6 +33,7 @@
   }
 
   .product-info__button--close + img {
+    display: block;
     width: 384px;
     height: 384px;
     object-fit: cover;
@@ -39,6 +45,7 @@
   .product-info__container {
     width: 100%;
     height: calc(100% - 408px);
+    min-height: 271px;
     padding: 22px 35px;
     position: relative;
 
@@ -106,7 +113,6 @@
 
       .product-info__button--add {
         width: calc(100% - (18px * 2));
-        bottom: 18px;
       }
     }
   }
