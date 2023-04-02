@@ -5,7 +5,7 @@ import "@styles/ProductItem.scss";
 import iconAddToCart from "@icons/bt_add_to_cart.svg";
 import iconAddedToCart from "@icons/bt_added_to_cart.svg";
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, handleToggle }) => {
   const { addToCart, state } = useShoppingCart();
 
   const handleClick = (item) => {
@@ -14,9 +14,13 @@ const ProductItem = ({ product }) => {
 
   return (
     <div className="Product-item">
-      <img src={product?.images[0]} alt={product?.title} />
+      <img
+        src={product?.images[0]}
+        alt={product?.title}
+        onClick={() => handleToggle(product)}
+      />
       <div className="Product-info">
-        <div>
+        <div onClick={() => handleToggle(product)}>
           <p>{product?.price} USD</p>
           <p>{product?.title}</p>
         </div>
@@ -43,6 +47,7 @@ const ProductItem = ({ product }) => {
 
 ProductItem.propTypes = {
   product: PropTypes.object,
+  handleToggle: PropTypes.func,
 };
 
 export default ProductItem;
