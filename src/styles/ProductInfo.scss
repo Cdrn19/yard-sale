@@ -1,0 +1,113 @@
+.product-info {
+  width: 384px;
+  height: calc(100vh - 56px);
+  position: absolute;
+  top: 56px;
+  right: 0px;
+  border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.119789);
+	background-color: #ffffff;
+  z-index: 1;
+
+  .product-info__button--close {
+    all: unset;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 17px;
+    left: 12px;
+    border-radius: 50%;
+    background-color: var(--white);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    cursor: pointer;
+
+    img {
+      width: 12px;
+    }
+  }
+
+  .product-info__button--close + img {
+    width: 384px;
+    height: 384px;
+    object-fit: cover;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    margin-bottom: 24px;
+  }
+
+  .product-info__container {
+    width: 100%;
+    height: calc(100% - 408px);
+    padding: 22px 35px;
+    position: relative;
+
+    .product-info__description {
+      p {
+        &:nth-child(1) {
+          font-size: var(--md);
+          font-weight: 700;
+        }
+
+        &:nth-child(2) {
+          font-size: var(--md);
+          font-weight: 400;
+          margin-top: 5px;
+          margin-bottom: 20px;
+        }
+
+        &:nth-child(3) {
+          font-size: var(--sm);
+          font-weight: 400;
+        }
+      }
+    }
+
+    .product-info__button--add {
+      all: unset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: calc(100% - (35px * 2));
+      height: 59px;
+      bottom: 22px;
+      background-color: var(--hospital-green);
+      border-radius: 10px;
+      color: var(--white);
+      font-size: var(--lg);
+      font-weight: 700;
+      cursor: pointer;
+
+      &.active {
+        cursor: default;
+        background-color: var(--very-light-pink);
+      }
+
+      img {
+        margin-right: 9.5px;
+        width: 23px;
+        filter: brightness(0) saturate(100%) invert(99%) sepia(20%) saturate(2%) hue-rotate(132deg) brightness(112%) contrast(100%);
+      }
+    }
+  }
+
+  @media (max-width: 413px) {
+    width: 100vw;
+
+    .product-info__button--close + img {
+      width: 100vw;
+      height: 100vw
+    }
+
+    .product-info__container {
+      height: calc(100% - (100vw) - 24px);
+      padding: 22px 18px;
+
+      .product-info__button--add {
+        width: calc(100% - (18px * 2));
+        bottom: 18px;
+      }
+    }
+  }
+}
