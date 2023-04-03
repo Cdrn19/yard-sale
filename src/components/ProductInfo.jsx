@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useShoppingCart } from "@hooks/useShoppingCart";
+import ImageSlider from "@components/imageSlider";
 import "@styles/ProductInfo.scss";
 
 import close from "@icons/icon_close.png";
@@ -20,7 +21,7 @@ const ProductInfo = ({ product, handleToggle }) => {
       >
         <img src={close} alt="close" className="product-info__button-close" />
       </button>
-      <img src={product.images[0]} alt="bike" />
+      <ImageSlider images={product.images} alt={product.title} />
       <div className="product-info__container">
         <div className="product-info__description">
           <p>{product.price} USD</p>
