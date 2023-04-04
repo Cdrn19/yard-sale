@@ -4,6 +4,7 @@ import { ProviderAuth } from "@hooks/useAuth";
 import Layout from "@containers/Layout";
 import Home from "@pages/Home";
 import Login from "@containers/Login";
+import CreateAccount from "@pages/CreateAccount";
 import "@styles/global.scss";
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
               <Route exact path="/" element={<Home />} />
               <Route path="/:category" element={<Home />} />
               <Route path="/signin" element={<Login />} />
+              <Route path="/signup" element={<CreateAccount />} />
             </Routes>
           </Layout>
         </BrowserRouter>

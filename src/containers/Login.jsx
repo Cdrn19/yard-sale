@@ -97,7 +97,12 @@ const Login = ({ handleLoginToggle, width }) => {
           </button>
           <a href="/">Forgot my password</a>
         </form>
-        <button className="login__signup-button">Sign up</button>
+        <button
+          className="login__signup-button"
+          onClick={() => navigate("/signup")}
+        >
+          Sign up
+        </button>
       </div>
     </div>
   );
