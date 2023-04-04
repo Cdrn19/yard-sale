@@ -1,0 +1,76 @@
+.create-account {
+  width: 100%;
+  height: calc( 100vh - 54px );
+  display: grid;
+  place-items: center;
+
+  .create-account__container {
+    h1 {
+      font-size: var(--lg);
+      font-weight: 700;
+      margin-bottom: 47px;
+    }
+
+    .create-account__form {
+      width: 339px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .create-account__form {
+
+      div {
+        display: flex;
+        flex-direction: column;
+  
+        .create-account__form--label {
+          font-size: var(--sm);
+          font-weight: 700;
+          margin-bottom: 6px;
+        }
+  
+        .create-account__form--input {
+          height: 42px;
+          font-weight: 400;
+          background-color: var(--text-input-field);
+          color: var(--very-light-pink);
+          border: none;
+          border-radius: 10px;
+          font-size: var(--md);
+          padding: 0 8px;
+
+          &.input-name, 
+          &.input-email, 
+          &.input-password {
+            margin-bottom: 24px;
+          }
+        }
+
+        label.error {
+          color: var(--text-error-field)
+        }
+  
+        input.error {
+          background-color: var(--input-error-data);
+          border: 1px solid var(--text-error-field);
+        }
+      }
+    }
+
+      .create-account__form--login-button {
+        height: 59px;
+        background-color: var(--hospital-green);
+        border-radius: 10px;
+        border: none;
+        color: var(--white);
+        font-size: var(--md);
+        font-weight: 700;
+        margin-top: 11px;
+        cursor: pointer;
+
+        &:active {
+          background-color: var(--very-light-pink);
+        }
+      }
+  }
+}
