@@ -40,6 +40,7 @@ function useProvideAuth() {
   }, []);
 
   const signUp = async (credentials) => {
+    setError([]);
     setIsLoading(true);
     await axios
       .post(endPoints.users.create, credentials, {
@@ -64,6 +65,7 @@ function useProvideAuth() {
   };
 
   const signIn = async (credentials) => {
+    setError([]);
     setIsLoading(true);
     await axios
       .post(endPoints.auth.login, credentials, {
