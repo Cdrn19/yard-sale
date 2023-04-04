@@ -39,6 +39,30 @@ function useProvideAuth() {
     token && recoveryLogin(token);
   }, []);
 
+  const signUp = async (credentials) => {
+    setIsLoading(true);
+    await axios
+      .post(endPoints.users.create, credentials, {
+        headers: {
+          accept: "*/*",
+          "Content-Type": "application/json",
+        },
+      })
+      .then(async ({ data }) => {
+        const credentials = JSON.stringify({
+          email: data.email,
+          password: data.password,
+        });
+        setError([]);
+        setIsLoading(false);
+        signIn(credentials);
+      })
+      .catch(({ response }) => {
+        setIsLoading(false);
+        setError(response.status);
+      });
+  };
+
   const signIn = async (credentials) => {
     setIsLoading(true);
     await axios
@@ -48,7 +72,7 @@ function useProvideAuth() {
           "Content-Type": "application/json",
         },
       })
-      .then(async function ({ data }) {
+      .then(async ({ data }) => {
         setError([]);
         setIsLoading(false);
         const token = data.access_token;
@@ -71,7 +95,7 @@ function useProvideAuth() {
     delete axios.defaults.headers.Authorization;
   };
 
-  return { user, error, isLoading, signIn, signOut };
+  return { user, error, isLoading, signUp, signIn, signOut };
 }
 
 ProviderAuth.propTypes = {
