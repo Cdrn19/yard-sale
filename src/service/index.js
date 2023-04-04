@@ -6,6 +6,9 @@ const endPoints = {
     login: `${API}/${VERSION}/auth/login`,
     profile: `${API}/${VERSION}/auth/profile`,
   },
+  users: {
+    create: `${API}/${VERSION}/users`,
+  },
   products: {
     all: `${API}/${VERSION}/products`,
   },
