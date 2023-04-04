@@ -92,7 +92,12 @@ const Login = ({ handleLoginToggle, width }) => {
           <p className="login__form--input-error">
             {auth.error === 401 && "invalid user ID and password combination"}
           </p>
-          <button className="login__form--login-button" onClick={handleSubmit}>
+          <button
+            className={`login__form--login-button ${
+              auth.isLoading ? `active` : null
+            }`}
+            onClick={handleSubmit}
+          >
             Log in
           </button>
           <a href="/">Forgot my password</a>

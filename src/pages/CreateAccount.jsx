@@ -49,7 +49,7 @@ const CreateAccount = () => {
             <label
               htmlFor="name"
               className={`create-account__form--label ${
-                (auth.error.length !== 0 || toggle[0].name) && "error"
+                (auth.error === 400 || toggle[0].name) && "error"
               }`}
             >
               Name
@@ -61,13 +61,13 @@ const CreateAccount = () => {
               placeholder="Yard Sale"
               autoComplete="on"
               className={`create-account__form--input input-name ${
-                (auth.error.length !== 0 || toggle[0].name) && "error"
+                (auth.error === 400 || toggle[0].name) && "error"
               }`}
             />
             <label
               htmlFor="email"
               className={`create-account__form--label ${
-                (auth.error.length !== 0 || toggle[0].email) && "error"
+                (auth.error === 400 || toggle[0].email) && "error"
               }`}
             >
               Email
@@ -79,13 +79,13 @@ const CreateAccount = () => {
               placeholder="hello@yardsale.com"
               autoComplete="on"
               className={`create-account__form--input input-email ${
-                (auth.error.length !== 0 || toggle[0].email) && "error"
+                (auth.error === 400 || toggle[0].email) && "error"
               }`}
             />
             <label
               htmlFor="password"
               className={`create-account__form--label ${
-                (auth.error.length !== 0 || toggle[0].password) && "error"
+                (auth.error === 400 || toggle[0].password) && "error"
               }`}
             >
               Password
@@ -101,8 +101,14 @@ const CreateAccount = () => {
               }`}
             />
           </div>
+          <p className="create-account__form--input-error">
+            {auth.error === 400 &&
+              "Password must be longer than or equal to 4 characters"}
+          </p>
           <button
-            className="create-account__form--login-button"
+            className={`create-account__form--login-button ${
+              auth.isLoading ? `active` : null
+            }`}
             onClick={handleSubmit}
           >
             Create

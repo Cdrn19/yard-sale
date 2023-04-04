@@ -85,7 +85,7 @@
         margin-bottom: 30px;
         cursor: pointer;
 
-        &:active {
+        &:active, &.active {
           background-color: var(--very-light-pink);
         }
       }

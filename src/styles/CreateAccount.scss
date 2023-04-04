@@ -53,24 +53,32 @@
         input.error {
           background-color: var(--input-error-data);
           border: 1px solid var(--text-error-field);
+          
         }
       }
     }
 
-      .create-account__form--login-button {
-        height: 59px;
-        background-color: var(--hospital-green);
-        border-radius: 10px;
-        border: none;
-        color: var(--white);
-        font-size: var(--md);
-        font-weight: 700;
-        margin-top: 11px;
-        cursor: pointer;
+    .create-account__form--input-error {
+      color: var(--text-error-field);
+      font-size: var(--sm);
+      font-weight: 400;
+      text-align: center;
+    }
 
-        &:active {
-          background-color: var(--very-light-pink);
-        }
+    .create-account__form--login-button {
+      height: 59px;
+      background-color: var(--hospital-green);
+      border-radius: 10px;
+      border: none;
+      color: var(--white);
+      font-size: var(--md);
+      font-weight: 700;
+      margin-top: 11px;
+      cursor: pointer;
+
+      &:active, &.active {
+        background-color: var(--very-light-pink);
       }
+    }
   }
 }
