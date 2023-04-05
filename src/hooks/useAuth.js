@@ -28,6 +28,7 @@ function useProvideAuth() {
       await axios
         .get(endPoints.auth.profile)
         .then(({ data: user }) => {
+          setIsLoading(false);
           setUser(user);
         })
         .catch(({ response }) => {
