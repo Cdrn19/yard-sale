@@ -92,13 +92,25 @@ function useProvideAuth() {
       });
   };
 
+  const update = async (data) => {
+    setError([]);
+    setIsLoading(true);
+    await axios
+      .put(`${endPoints.users.update}${user.id}`, data)
+      .then(({ data: user }) => setUser(user) & setIsLoading(false))
+      .catch(({ response }) => {
+        setIsLoading(false);
+        setError(response.status);
+      });
+  };
+
   const signOut = () => {
     setUser(null);
     Cookie.remove("token");
     delete axios.defaults.headers.Authorization;
   };
 
-  return { user, error, isLoading, signUp, signIn, signOut };
+  return { user, error, isLoading, signUp, signIn, update, signOut };
 }
 
 ProviderAuth.propTypes = {
