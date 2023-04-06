@@ -1,0 +1,87 @@
+.account {
+  width: 100%;
+  height: calc( 100vh - 54px );
+  display: grid;
+  place-items: center;
+
+  .account__container {
+    h1 {
+      font-size: var(--lg);
+      font-weight: 700;
+      margin-bottom: 47px;
+    }
+
+    .account__form {
+      width: 339px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .account__form {
+      div {
+        display: flex;
+        flex-direction: column;
+  
+        .account__form--label {
+          font-size: var(--sm);
+          font-weight: 700;
+          margin-bottom: 6px;
+        }
+  
+        .account__form--input {
+          height: 42px;
+          font-weight: 400;
+          color: var(--very-light-pink);
+          background-color: var(--text-input-field);
+          border: none;
+          border-radius: 10px;
+          font-size: var(--md);
+          padding: 0 8px;
+
+          &.input-name, 
+          &.input-email, 
+          &.input-password {
+            margin-bottom: 24px;
+          }
+
+          &:disabled {
+            background-color: var(--white);
+          }
+        }
+
+        label.error {
+          color: var(--text-error-field)
+        }
+  
+        input.error {
+          background-color: var(--input-error-data);
+          border: 1px solid var(--text-error-field);
+          
+        }
+      }
+    }
+
+    .account__form--input-error {
+      color: var(--text-error-field);
+      font-size: var(--sm);
+      font-weight: 400;
+      text-align: center;
+    }
+
+    .account__form--login-button {
+      height: 59px;
+      background-color: var(--white);
+      border-radius: 10px;
+      border: 1px solid var(--hospital-green);
+      color: var(--hospital-green);
+      font-size: var(--md);
+      font-weight: 700;
+      cursor: pointer;
+
+      &.active {
+        color: var(--white);
+        background-color: var(--hospital-green);
+      }
+    }
+  }
+}
