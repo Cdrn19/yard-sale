@@ -8,6 +8,7 @@ const endPoints = {
   },
   users: {
     create: `${API}/${VERSION}/users`,
+    update: `${API}/${VERSION}/users/`,
   },
   products: {
     all: `${API}/${VERSION}/products`,
