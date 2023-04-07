@@ -47,6 +47,10 @@
           &:disabled {
             background-color: var(--white);
           }
+
+          &::placeholder {
+            color: var(--very-light-pink);
+          }
         }
 
         label.error {

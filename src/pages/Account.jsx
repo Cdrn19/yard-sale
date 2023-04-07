@@ -48,7 +48,7 @@ const Account = () => {
             <label
               htmlFor="email"
               className={`account__form--label ${
-                (auth.error >= 400) & "error"
+                auth.error >= 400 && "error"
               }`}
             >
               Email
@@ -61,12 +61,12 @@ const Account = () => {
               autoComplete="on"
               disabled={editToggle}
               className={`account__form--input input-email ${
-                (auth.error >= 400) & "error"
+                auth.error >= 400 && "error"
               }`}
             />
             <label
               htmlFor="password"
-              className={`account__form--label ${auth.error >= 40 && "error"}`}
+              className={`account__form--label ${auth.error >= 400 && "error"}`}
             >
               Password
             </label>
