@@ -1,7 +1,7 @@
 .product-info {
   width: 384px;
-  height: calc(100vh - 56px);
-  position: absolute;
+  height: calc(100vh - 54px);
+  position: fixed;
   top: 56px;
   right: 0px;
   border-radius: 5px;
@@ -102,6 +102,7 @@
 
   @media (max-width: 413px) {
     width: 100vw;
+    top: 54px;
 
     .product-info__button--close + img {
       width: 100vw;

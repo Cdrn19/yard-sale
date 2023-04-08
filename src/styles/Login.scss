@@ -1,6 +1,7 @@
 .login {
 	width: 100%;
-  height: calc( 100vh - 54px);
+  height: 100vh;
+  padding-top: 54px;
 	display: grid;
 	place-items: center;
 
@@ -22,8 +23,8 @@
     }
 
     .login-container__logo {
-      width: 150px;
-      margin-bottom: 48px;
+      width: 206px;
+      margin: 114px 0 48px;
       justify-self: center;
       display: none;
     }
@@ -109,12 +110,17 @@
       font-weight: 700;
       cursor: pointer;
     }
+  }
 
-    @media (max-width: 640px) {
+  @media (max-width: 640px) {
+    place-items: start;
+    justify-content: center;
+
+    .login-container {
       .login-container__logo {
         display: block;
       }
-    } 
+    }
   }
 
   @media (max-width: 413px) {

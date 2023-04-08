@@ -1,9 +1,13 @@
 .main-nav {
+  position: fixed;
+  width: 100%;
 	display: flex;
 	justify-content: space-between;
   height: 54px;
 	padding: 0 50px;
+  background-color: var(--white);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.046805);
+  z-index: 2;
 
   .main-nav__button {
     display: none;
@@ -112,6 +116,15 @@
       }
     }
   }
+
+  @media (max-width: 413px) {
+    .main-nav__left a {
+      img {
+        width: 96px;
+      }
+    }
+  }  
+
   @media (max-width: 938px) {
     .main-nav__button {
       all: unset;
