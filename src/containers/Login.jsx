@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useAuth } from "@hooks/useAuth";
 import "@styles/Login.scss";
@@ -100,7 +100,7 @@ const Login = ({ handleLoginToggle, width }) => {
           >
             Log in
           </button>
-          <a href="/">Forgot my password</a>
+          <Link to="/passwordrecovery">Forgot my password</Link>
         </form>
         <button
           className="login__signup-button"

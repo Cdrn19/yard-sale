@@ -6,6 +6,7 @@ import Layout from "@containers/Layout";
 import Home from "@pages/Home";
 import Login from "@containers/Login";
 import CreateAccount from "@pages/CreateAccount";
+import PasswordRecovery from "@pages/PasswordRecovery";
 import Account from "@pages/Account";
 import "@styles/global.scss";
 
@@ -20,6 +21,7 @@ const App = () => {
               <Route path="/:category" element={<Home />} />
               <Route path="/signin" element={<Login />} />
               <Route path="/signup" element={<CreateAccount />} />
+              <Route path="/passwordRecovery" element={<PasswordRecovery />} />
               <Route
                 path="/account"
                 element={
