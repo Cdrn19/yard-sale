@@ -9,6 +9,7 @@ const endPoints = {
   users: {
     create: `${API}/${VERSION}/users`,
     update: `${API}/${VERSION}/users/`,
+    check: `${API}/${VERSION}/users/is-available`,
   },
   products: {
     all: `${API}/${VERSION}/products`,
