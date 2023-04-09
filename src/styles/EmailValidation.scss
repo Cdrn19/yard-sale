@@ -1,0 +1,103 @@
+.email-validation {
+  width: 100%;
+  height: 100vh;
+  padding-top: 54px;
+  display: grid;
+  place-items: center;
+  cursor: default;
+
+  .email-validation__container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 339px;
+
+    .email-validation__logo {
+      width: 149px;
+      margin: 76px 0 74px;
+      justify-self: center;
+      display: none;
+    }
+
+    .email-validation__title {
+      text-align: center;
+      font-size: var(--lg);
+      font-weight: 700;
+    }
+
+    .email-validation__subtitle {
+      font-size: var(--lg);
+      font-weight: 400;
+      color: var(--very-light-pink);
+      text-align: center;
+      margin: 10px 0 33px;
+      padding: 0 37px;
+    }
+
+    .email-validation__form {
+      display: flex;
+      flex-direction: column;
+    
+      .email-validation__form--label {
+        font-size: var(--sm);
+        font-weight: 700;
+        margin-bottom: 6px;
+
+        &.error {
+          color: var(--text-error-field)
+        }
+      }
+
+      .email-validation__form--input {
+        height: 42px;
+        font-weight: 400;
+        color: var(--very-light-pink);
+        background-color: var(--text-input-field);
+        border: none;
+        border-radius: 10px;
+        font-size: var(--md);
+        padding: 0 8px;
+  
+        &.error {
+          background-color: var(--input-error-data);
+          border: 1px solid var(--text-error-field);
+        }
+      }
+      
+      .email-validation__form--login-button {
+        height: 59px;
+        background-color: var(--hospital-green);
+        border-radius: 10px;
+        border: none;
+        color: var(--white);
+        font-size: var(--md);
+        font-weight: 700;
+        margin-top: 29px;
+        cursor: pointer;
+
+        &:active, &.active {
+          background-color: var(--very-light-pink);
+        }
+      }  
+    }
+  }
+
+  .email-validation__container a {
+    color: var(--hospital-green);
+    font-size: var(--sm);
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 640px) {
+    place-items: start;
+    justify-content: center;
+
+    .email-validation__container {
+      .email-validation__logo {
+        display: block;
+      }
+    }
+  }
+}
