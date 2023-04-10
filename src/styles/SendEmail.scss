@@ -1,0 +1,101 @@
+.send-email {
+	width: 100%;
+  height: 100vh;
+  padding-top: 54px;
+	display: grid;
+	place-items: center;
+  cursor: default;
+
+  .send-email__container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 339px;
+    justify-items: center;
+
+    .send-email__logo {
+      width: 149px;
+      margin: 76px 0 74px;
+      justify-self: center;
+      display: none;
+    }
+  
+    .send-email__title {
+      font-size: var(--lg);
+      font-weight: 700;
+      margin-bottom: 9px;
+      text-align: center;
+    }
+
+    .send-email__subtitle {
+      color: var(--very-light-pink);
+      font-size: var(--lg);
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 29px;
+      padding: 0 2px;
+    }
+
+    .send-email__email-image {
+      width: 153px;
+      height: 153px;
+      border-radius: 50%;
+      background-color: var(--text-input-field);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 38px;
+
+      img {
+        width: 90px;
+      }
+    }
+
+    .send-email__login-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 59px;
+      background-color: var(--hospital-green);
+      border-radius: 10px;
+      border: none;
+      color: var(--white);
+      font-size: var(--lg);
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:active, &.active {
+        background-color: var(--very-light-pink);
+      }
+    }
+
+    .send-email__resend {
+      margin-top: 30px;
+
+      span {
+        font-size: var(--sm);
+        color: var(--very-light-pink);
+      }
+
+      button {
+        all: unset;
+        font-size: var(--sm);
+        color: var(--hospital-green);
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    place-items: start;
+    justify-content: center;
+    
+    .send-email__container {
+      .send-email__logo {
+        display: block;
+      }
+    }
+  }
+}
