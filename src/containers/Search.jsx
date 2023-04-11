@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import ProductList from "@containers/ProductList";
@@ -9,10 +9,23 @@ import arrow from "@icons/arrow.svg";
 
 const Search = ({ products }) => {
   const [value, setValue] = useState("");
-  const [toggle, setToggle] = useState(["Most Recent", false]);
+  const [toggle, setToggle] = useState(false);
+  const [filteredBy, setFilteredBy] = useState("Most Recent");
+  const refFilter = useRef(null);
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+  }, []);
+
+  const handleClickOutside = (e) => {
+    if (!refFilter?.current?.contains(e.target)) {
+      setToggle(false);
+    }
+  };
 
   const filterToggle = (button) => {
-    setToggle([button, !toggle[1]]);
+    setToggle(!toggle);
+    setFilteredBy(button);
     filter(button);
   };
 
@@ -83,13 +96,15 @@ const Search = ({ products }) => {
             </li>
           </ul>
         </div>
-        <div className="search__container--filter">
+        <div className="search__container--filter" ref={refFilter}>
           <h5>Order:</h5>
           <div className="search__button--filter">
-            <button onClick={() => filterToggle(toggle[0])}>{toggle[0]}</button>
+            <button onClick={() => filterToggle(filteredBy)}>
+              {filteredBy}
+            </button>
             <img src={arrow} alt="arrow" />
             <>
-              {toggle[1] && (
+              {toggle && (
                 <ul>
                   <li>
                     <button onClick={() => filterToggle("Most recent")}>

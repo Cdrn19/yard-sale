@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useShoppingCart } from "@hooks/useShoppingCart";
 import { useAuth } from "@hooks/useAuth";
@@ -18,6 +18,19 @@ const Header = () => {
   const [orderToggle, setOrderToggle] = useState(false);
   const { state } = useShoppingCart();
   const auth = useAuth();
+  const refNav = useRef(null);
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+  }, []);
+
+  const handleClickOutside = (e) => {
+    if (!refNav.current.contains(e.target)) {
+      setOrderToggle(false);
+      setToggle(false);
+      setMobileToggle(false);
+    }
+  };
 
   const handleMobileToggle = () => {
     setMobileToggle(!mobileToggle);
@@ -38,7 +51,7 @@ const Header = () => {
   const width = window.innerWidth <= 413;
 
   return (
-    <nav className="main-nav">
+    <nav className="main-nav" ref={refNav}>
       <button className="main-nav__button" onClick={handleMobileToggle}>
         <img src={menu} alt="menu" className="main-nav__button-menu" />
       </button>

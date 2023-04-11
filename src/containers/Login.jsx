@@ -7,16 +7,36 @@ import "@styles/Login.scss";
 import logo from "@logos/logo_yard_sale.svg";
 import close from "@icons/icon_close.png";
 
-const Login = ({ handleLoginToggle, width }) => {
+const Login = ({ handleLoginToggle, handleMobileToggle, LoginToggle }) => {
   const [toggle, setToggle] = useState([false, false]);
   const form = useRef(null);
   const auth = useAuth();
   const navigate = useNavigate();
 
+  const handleCloseAll = () => {
+    handleLoginToggle();
+    handleMobileToggle();
+  };
+
+  const mobileStyles = {
+    login: {
+      position: "absolute",
+      backgroundColor: "white",
+      zIndex: "2",
+      width: "100vw",
+      height: "100vh",
+      top: "0",
+      left: "0",
+    },
+    loginContainer__button: {
+      display: "block",
+    },
+  };
+
   useEffect(() => {
     if (auth.user) {
       navigate("/");
-      width && handleLoginToggle();
+      LoginToggle && handleLoginToggle();
     }
   }, [auth.user]);
 
@@ -42,14 +62,17 @@ const Login = ({ handleLoginToggle, width }) => {
   };
 
   return (
-    <div className="login">
+    <div className="login" style={LoginToggle && mobileStyles.login}>
       <div className="login-container">
-        <button
-          className="login-container__button"
-          onClick={() => handleLoginToggle()}
-        >
-          <img src={close} alt="close" className="mobile-nav__button-close" />
-        </button>
+        {LoginToggle && (
+          <button
+            className="login-container__button"
+            style={LoginToggle && mobileStyles.loginContainer__button}
+            onClick={() => handleLoginToggle()}
+          >
+            <img src={close} alt="close" className="mobile-nav__button-close" />
+          </button>
+        )}
         <img src={logo} alt="logo" className="login-container__logo" />
         <form action="/" className="login__form" ref={form}>
           <label
@@ -100,11 +123,18 @@ const Login = ({ handleLoginToggle, width }) => {
           >
             Log in
           </button>
-          <Link to="/passwordrecovery">Forgot my password</Link>
+          <Link
+            to="/passwordrecovery"
+            onClick={() => LoginToggle && handleCloseAll()}
+          >
+            Forgot my password
+          </Link>
         </form>
         <button
           className="login__signup-button"
-          onClick={() => navigate("/signup")}
+          onClick={() =>
+            navigate("/signup") & (LoginToggle && handleCloseAll())
+          }
         >
           Sign up
         </button>
@@ -115,7 +145,8 @@ const Login = ({ handleLoginToggle, width }) => {
 
 Login.propTypes = {
   handleLoginToggle: PropTypes.func,
-  width: PropTypes.bool,
+  handleMobileToggle: PropTypes.func,
+  LoginToggle: PropTypes.bool,
 };
 
 export default Login;

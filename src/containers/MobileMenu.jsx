@@ -29,22 +29,34 @@ const MobileMenu = ({ handleMobileToggle, auth }) => {
           <div className="mobile-nav__up">
             <ul>
               <li>
-                <Link to="/">All</Link>
+                <Link to="/" onClick={() => handleMobileToggle()}>
+                  All
+                </Link>
               </li>
               <li>
-                <Link to="/clothes">Clothes</Link>
+                <Link to="/clothes" onClick={() => handleMobileToggle()}>
+                  Clothes
+                </Link>
               </li>
               <li>
-                <Link to="/electronics">Electronics</Link>
+                <Link to="/electronics" onClick={() => handleMobileToggle()}>
+                  Electronics
+                </Link>
               </li>
               <li>
-                <Link to="/furnitures">Furnitures</Link>
+                <Link to="/furnitures" onClick={() => handleMobileToggle()}>
+                  Furnitures
+                </Link>
               </li>
               <li>
-                <Link to="/toys">Toys</Link>
+                <Link to="/toys" onClick={() => handleMobileToggle()}>
+                  Toys
+                </Link>
               </li>
               <li>
-                <Link to="/others">Others</Link>
+                <Link to="/others" onClick={() => handleMobileToggle()}>
+                  Others
+                </Link>
               </li>
             </ul>
           </div>
@@ -89,7 +101,11 @@ const MobileMenu = ({ handleMobileToggle, auth }) => {
         </div>
       </nav>
       {LoginToggle && (
-        <Login handleLoginToggle={() => handleLoginToggle()} width={width} />
+        <Login
+          handleLoginToggle={() => handleLoginToggle()}
+          handleMobileToggle={() => handleMobileToggle()}
+          LoginToggle={LoginToggle}
+        />
       )}
     </>
   );
