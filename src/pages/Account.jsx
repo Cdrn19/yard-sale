@@ -47,9 +47,7 @@ const Account = () => {
             />
             <label
               htmlFor="email"
-              className={`account__form--label ${
-                auth.error >= 400 && "error"
-              }`}
+              className={`account__form--label ${auth.error >= 400 && "error"}`}
             >
               Email
             </label>
@@ -92,7 +90,7 @@ const Account = () => {
             }`}
             onClick={handleSubmit}
           >
-            Edit
+            {editToggle ? "Edit" : "Save"}
           </button>
         </form>
       </div>
