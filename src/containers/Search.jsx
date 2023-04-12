@@ -80,19 +80,19 @@ const Search = ({ products }) => {
               <NavLink to="/">All</NavLink>
             </li>
             <li>
-              <NavLink to="/clothes">Clothes</NavLink>
+              <NavLink to="/category/clothes">Clothes</NavLink>
             </li>
             <li>
-              <NavLink to="/electronics">Electronics</NavLink>
+              <NavLink to="/category/electronics">Electronics</NavLink>
             </li>
             <li>
-              <NavLink to="/furnitures">Furnitures</NavLink>
+              <NavLink to="/category/furnitures">Furnitures</NavLink>
             </li>
             <li>
-              <NavLink to="/toys">Toys</NavLink>
+              <NavLink to="/category/toys">Toys</NavLink>
             </li>
             <li>
-              <NavLink to="/others">Others</NavLink>
+              <NavLink to="/category/others">Others</NavLink>
             </li>
           </ul>
         </div>

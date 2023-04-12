@@ -8,6 +8,7 @@ import Login from "@containers/Login";
 import CreateAccount from "@pages/CreateAccount";
 import PasswordRecovery from "@pages/PasswordRecovery";
 import Account from "@pages/Account";
+import NotFound from "@pages/NotFound";
 import "@styles/global.scss";
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
           <Layout>
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route path="/:category" element={<Home />} />
+              <Route path="/category/:category" element={<Home />} />
               <Route path="/signin" element={<Login />} />
               <Route path="/signup" element={<CreateAccount />} />
               <Route path="/passwordRecovery" element={<PasswordRecovery />} />
@@ -30,6 +31,7 @@ const App = () => {
                   </AuthRoute>
                 }
               />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
         </BrowserRouter>
