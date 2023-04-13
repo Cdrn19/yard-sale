@@ -1,19 +1,11 @@
-import { useState } from "react";
-import EmailValidation from "@containers/EmailValidation";
-import SendEmail from "@containers/SendEmail";
+import ForgotPassword from "@containers/ForgotPassword";
 
 const PasswordRecovery = () => {
-  const [email, setEmail] = useState(null);
-
-  const validateSendEmail = () => {
-    if (email) {
-      return <SendEmail email={email} />;
-    } else {
-      return <EmailValidation setEmail={setEmail} />;
-    }
-  };
-
-  return <>{validateSendEmail()}</>;
+  return (
+    <>
+      <ForgotPassword />
+    </>
+  );
 };
 
 export default PasswordRecovery;
