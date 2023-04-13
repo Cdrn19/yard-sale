@@ -90,14 +90,16 @@
           background-color: var(--very-light-pink);
         }
       }
+    }
 
-      a {
-        color: var(--hospital-green);
-        font-size: var(--sm);
-        text-align: center;
-        text-decoration: none;
-        margin-bottom: 60px;
-      }
+    a, button {
+      all: unset;
+      color: var(--hospital-green);
+      font-size: var(--sm);
+      text-align: center;
+      text-decoration: none;
+      margin-bottom: 60px;
+      cursor: pointer;
     }
 
     .login__signup-button {

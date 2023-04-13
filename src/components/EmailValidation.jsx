@@ -6,7 +6,7 @@ import "@styles/EmailValidation.scss";
 
 import logo from "@logos/logo_yard_sale.svg";
 
-const EmailValidation = ({ setEmail }) => {
+const EmailValidation = ({ setEmail, LoginToggle, handleCloseRecovery }) => {
   const [toggle, setToggle] = useState(false);
   const form = useRef(null);
   const auth = useAuth();
@@ -60,7 +60,11 @@ const EmailValidation = ({ setEmail }) => {
             Submit
           </button>
         </form>
-        <Link to="/signin">Back to Login</Link>
+        {LoginToggle ? (
+          <button onClick={() => handleCloseRecovery()}>Back to Login</button>
+        ) : (
+          <Link to="/signin">Back to Login</Link>
+        )}
       </div>
     </div>
   );
@@ -68,6 +72,8 @@ const EmailValidation = ({ setEmail }) => {
 
 EmailValidation.propTypes = {
   setEmail: PropTypes.func,
+  LoginToggle: PropTypes.bool,
+  handleCloseRecovery: PropTypes.func,
 };
 
 export default EmailValidation;

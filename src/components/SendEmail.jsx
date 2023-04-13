@@ -6,7 +6,7 @@ import { useAuth } from "@hooks/useAuth";
 import logo from "@logos/logo_yard_sale.svg";
 import mail from "@icons/mail.svg";
 
-const SendEmail = ({ email }) => {
+const SendEmail = ({ email, LoginToggle, handleCloseRecovery }) => {
   const auth = useAuth();
   const handleClick = () => {
     !auth.isLoading && auth.checkEmail(email);
@@ -23,9 +23,18 @@ const SendEmail = ({ email }) => {
         <div className="send-email__email-image">
           <img src={mail} alt="email" />
         </div>
-        <Link to="/signin" className="send-email__login-button">
-          Login
-        </Link>
+        {LoginToggle ? (
+          <button
+            className="send-email__login-button"
+            onClick={() => handleCloseRecovery()}
+          >
+            Login
+          </button>
+        ) : (
+          <Link to="/signin" className="send-email__login-button">
+            Login
+          </Link>
+        )}
         <p className="send-email__resend">
           <span>Didn&apos;t receive the email?&nbsp;</span>
           <button onClick={handleClick}>Resend</button>
@@ -37,6 +46,8 @@ const SendEmail = ({ email }) => {
 
 SendEmail.propTypes = {
   email: PropTypes.object,
+  LoginToggle: PropTypes.bool,
+  handleCloseRecovery: PropTypes.func,
 };
 
 export default SendEmail;
