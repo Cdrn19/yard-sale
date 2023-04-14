@@ -10,12 +10,14 @@ const OrderItem = ({ product, handleRemove }) => {
       </figure>
       <p className="order-item--title">{product.title}</p>
       <p className="order-item--price">{product.price} USD</p>
-      <img
-        src={close}
-        className="order-item__icon-close"
-        alt="close"
-        onClick={() => handleRemove(product.id)}
-      />
+      {handleRemove && (
+        <img
+          src={close}
+          className="order-item__icon-close"
+          alt="close"
+          onClick={() => handleRemove(product.id)}
+        />
+      )}
     </div>
   );
 };
