@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import OrderItem from "@components/OrderItem";
 import { useShoppingCart } from "@hooks/useShoppingCart";
@@ -43,7 +44,9 @@ const MyOrder = ({ width }) => {
           </p>
           <p>{sumCart()} USD</p>
         </div>
-        <button className="my-order__order--Primary-Button">Checkout</button>
+        <Link to="/checkout" className="my-order__order--Primary-Button">
+          Checkout
+        </Link>
       </div>
     </div>
   );

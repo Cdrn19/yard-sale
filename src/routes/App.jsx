@@ -8,6 +8,7 @@ import Login from "@containers/Login";
 import CreateAccount from "@pages/CreateAccount";
 import PasswordRecovery from "@pages/PasswordRecovery";
 import Account from "@pages/Account";
+import Checkout from "@pages/Checkout";
 import NotFound from "@pages/NotFound";
 import "@styles/global.scss";
 
@@ -23,6 +24,7 @@ const App = () => {
               <Route path="/signin" element={<Login />} />
               <Route path="/signup" element={<CreateAccount />} />
               <Route path="/passwordRecovery" element={<PasswordRecovery />} />
+              <Route path="/checkout" element={<Checkout />} />
               <Route
                 path="/account"
                 element={
