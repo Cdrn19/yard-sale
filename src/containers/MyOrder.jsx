@@ -6,7 +6,7 @@ import "@styles/MyOrder.scss";
 
 import arrowLeft from "@icons/arrow-left.svg";
 
-const MyOrder = ({ width }) => {
+const MyOrder = ({ width, handleOrderToggle }) => {
   const { state, removeFromCart } = useShoppingCart();
 
   const sumCart = () => {
@@ -44,7 +44,11 @@ const MyOrder = ({ width }) => {
           </p>
           <p>{sumCart()} USD</p>
         </div>
-        <Link to="/checkout" className="my-order__order--Primary-Button">
+        <Link
+          to="/checkout"
+          className="my-order__order--Primary-Button"
+          onClick={() => handleOrderToggle()}
+        >
           Checkout
         </Link>
       </div>
@@ -54,6 +58,7 @@ const MyOrder = ({ width }) => {
 
 MyOrder.propTypes = {
   width: PropTypes.bool,
+  handleOrderToggle: PropTypes.func,
 };
 
 export default MyOrder;

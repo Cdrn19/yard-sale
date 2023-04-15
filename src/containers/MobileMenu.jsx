@@ -34,27 +34,39 @@ const MobileMenu = ({ handleMobileToggle, auth }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/clothes" onClick={() => handleMobileToggle()}>
+                <Link
+                  to="/category/clothes"
+                  onClick={() => handleMobileToggle()}
+                >
                   Clothes
                 </Link>
               </li>
               <li>
-                <Link to="/electronics" onClick={() => handleMobileToggle()}>
+                <Link
+                  to="/category/electronics"
+                  onClick={() => handleMobileToggle()}
+                >
                   Electronics
                 </Link>
               </li>
               <li>
-                <Link to="/furnitures" onClick={() => handleMobileToggle()}>
+                <Link
+                  to="/category/furnitures"
+                  onClick={() => handleMobileToggle()}
+                >
                   Furnitures
                 </Link>
               </li>
               <li>
-                <Link to="/toys" onClick={() => handleMobileToggle()}>
+                <Link to="/category/toys" onClick={() => handleMobileToggle()}>
                   Toys
                 </Link>
               </li>
               <li>
-                <Link to="/others" onClick={() => handleMobileToggle()}>
+                <Link
+                  to="/category/others"
+                  onClick={() => handleMobileToggle()}
+                >
                   Others
                 </Link>
               </li>

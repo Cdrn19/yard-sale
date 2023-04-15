@@ -13,7 +13,6 @@ const useGetProducts = (API) => {
     await axios
       .get(API)
       .then(({ data }) => {
-        console.log(data);
         setProducts(data);
       })
       .catch(({ response }) => {

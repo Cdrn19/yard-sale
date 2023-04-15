@@ -117,7 +117,9 @@ const Header = () => {
           auth={auth}
         />
       )}
-      {orderToggle && <MyOrder width={width} />}
+      {orderToggle && (
+        <MyOrder width={width} handleOrderToggle={() => handleOrderToggle()} />
+      )}
     </nav>
   );
 };
