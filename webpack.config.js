@@ -7,10 +7,12 @@ const TerserPlugin = require("terser-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    index: "./src/index.js",
+  },
   output: {
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].js",
     publicPath: "/",
   },
   mode: "production",
@@ -51,7 +53,11 @@ module.exports = {
       },
       {
         test: /\.(png|svg)$/,
-        type: "asset",
+        type: "asset/resource",
+      },
+      {
+        test: /\.ttf$/,
+        type: "asset/resource",
       },
     ],
   },
