@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useAuth } from "@hooks/useAuth";
+import SEO from "@components/SEO";
 import "@styles/Account.scss";
 
 const Account = () => {
@@ -23,78 +24,87 @@ const Account = () => {
   };
 
   return (
-    <div className="account">
-      <div className="account__container">
-        <h1 className="account__title">My account</h1>
-        <form action="/" className="account__form" ref={form}>
-          <div>
-            <label
-              htmlFor="name"
-              className={`account__form--label ${auth.error >= 400 && "error"}`}
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              defaultValue={auth.user.name}
-              autoComplete="on"
-              disabled={editToggle}
-              className={`account__form--input input-name ${
-                auth.error >= 400 && "error"
+    <>
+      <SEO title="Account" />
+      <div className="account">
+        <div className="account__container">
+          <h1 className="account__title">My account</h1>
+          <form action="/" className="account__form" ref={form}>
+            <div>
+              <label
+                htmlFor="name"
+                className={`account__form--label ${
+                  auth.error >= 400 && "error"
+                }`}
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                defaultValue={auth.user.name}
+                autoComplete="on"
+                disabled={editToggle}
+                className={`account__form--input input-name ${
+                  auth.error >= 400 && "error"
+                }`}
+              />
+              <label
+                htmlFor="email"
+                className={`account__form--label ${
+                  auth.error >= 400 && "error"
+                }`}
+              >
+                Email
+              </label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                defaultValue={auth.user.email}
+                autoComplete="on"
+                disabled={editToggle}
+                className={`account__form--input input-email ${
+                  auth.error >= 400 && "error"
+                }`}
+              />
+              <label
+                htmlFor="password"
+                className={`account__form--label ${
+                  auth.error >= 400 && "error"
+                }`}
+              >
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="*********"
+                autoComplete="on"
+                disabled={editToggle}
+                className={`account__form--input input-password ${
+                  auth.error >= 400 && "error"
+                }`}
+              />
+            </div>
+            <p className="account__form--input-error">
+              {auth.error >= 400 &&
+                "Password must be longer than or equal to 4 characters"}
+            </p>
+            <button
+              className={`account__form--login-button ${
+                editToggle ? null : `active`
               }`}
-            />
-            <label
-              htmlFor="email"
-              className={`account__form--label ${auth.error >= 400 && "error"}`}
+              onClick={handleSubmit}
             >
-              Email
-            </label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              defaultValue={auth.user.email}
-              autoComplete="on"
-              disabled={editToggle}
-              className={`account__form--input input-email ${
-                auth.error >= 400 && "error"
-              }`}
-            />
-            <label
-              htmlFor="password"
-              className={`account__form--label ${auth.error >= 400 && "error"}`}
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="*********"
-              autoComplete="on"
-              disabled={editToggle}
-              className={`account__form--input input-password ${
-                auth.error >= 400 && "error"
-              }`}
-            />
-          </div>
-          <p className="account__form--input-error">
-            {auth.error >= 400 &&
-              "Password must be longer than or equal to 4 characters"}
-          </p>
-          <button
-            className={`account__form--login-button ${
-              editToggle ? null : `active`
-            }`}
-            onClick={handleSubmit}
-          >
-            {editToggle ? "Edit" : "Save"}
-          </button>
-        </form>
+              {editToggle ? "Edit" : "Save"}
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

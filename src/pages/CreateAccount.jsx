@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@hooks/useAuth";
+import SEO from "@components/SEO";
 import "@styles/CreateAccount.scss";
 
 const CreateAccount = () => {
@@ -41,81 +42,84 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className="create-account">
-      <div className="create-account__container">
-        <h1 className="create-account__title">My account</h1>
-        <form action="/" className="create-account__form" ref={form}>
-          <div>
-            <label
-              htmlFor="name"
-              className={`create-account__form--label ${
-                (auth.error === 400 || toggle[0].name) && "error"
+    <>
+      <SEO title="Create Account" />
+      <div className="create-account">
+        <div className="create-account__container">
+          <h1 className="create-account__title">My account</h1>
+          <form action="/" className="create-account__form" ref={form}>
+            <div>
+              <label
+                htmlFor="name"
+                className={`create-account__form--label ${
+                  (auth.error === 400 || toggle[0].name) && "error"
+                }`}
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Yard Sale"
+                autoComplete="on"
+                className={`create-account__form--input input-name ${
+                  (auth.error === 400 || toggle[0].name) && "error"
+                }`}
+              />
+              <label
+                htmlFor="email"
+                className={`create-account__form--label ${
+                  (auth.error === 400 || toggle[0].email) && "error"
+                }`}
+              >
+                Email
+              </label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="hello@yardsale.com"
+                autoComplete="on"
+                className={`create-account__form--input input-email ${
+                  (auth.error === 400 || toggle[0].email) && "error"
+                }`}
+              />
+              <label
+                htmlFor="password"
+                className={`create-account__form--label ${
+                  (auth.error === 400 || toggle[0].password) && "error"
+                }`}
+              >
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="*********"
+                autoComplete="on"
+                className={`create-account__form--input input-password ${
+                  (auth.error === 400 || toggle[0].password) && "error"
+                }`}
+              />
+            </div>
+            <p className="create-account__form--input-error">
+              {auth.error === 400 &&
+                "Password must be longer than or equal to 4 characters"}
+            </p>
+            <button
+              className={`create-account__form--login-button ${
+                auth.isLoading ? `active` : null
               }`}
+              onClick={handleSubmit}
             >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Yard Sale"
-              autoComplete="on"
-              className={`create-account__form--input input-name ${
-                (auth.error === 400 || toggle[0].name) && "error"
-              }`}
-            />
-            <label
-              htmlFor="email"
-              className={`create-account__form--label ${
-                (auth.error === 400 || toggle[0].email) && "error"
-              }`}
-            >
-              Email
-            </label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              placeholder="hello@yardsale.com"
-              autoComplete="on"
-              className={`create-account__form--input input-email ${
-                (auth.error === 400 || toggle[0].email) && "error"
-              }`}
-            />
-            <label
-              htmlFor="password"
-              className={`create-account__form--label ${
-                (auth.error === 400 || toggle[0].password) && "error"
-              }`}
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="*********"
-              autoComplete="on"
-              className={`create-account__form--input input-password ${
-                (auth.error === 400 || toggle[0].password) && "error"
-              }`}
-            />
-          </div>
-          <p className="create-account__form--input-error">
-            {auth.error === 400 &&
-              "Password must be longer than or equal to 4 characters"}
-          </p>
-          <button
-            className={`create-account__form--login-button ${
-              auth.isLoading ? `active` : null
-            }`}
-            onClick={handleSubmit}
-          >
-            Create
-          </button>
-        </form>
+              Create
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

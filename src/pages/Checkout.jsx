@@ -1,5 +1,6 @@
 import { useShoppingCart } from "@hooks/useShoppingCart";
 import OrderItem from "@components/OrderItem";
+import SEO from "@components/SEO";
 import "@styles/Checkout.scss";
 
 const Checkout = () => {
@@ -19,26 +20,29 @@ const Checkout = () => {
   };
 
   return (
-    <div className="checkout">
-      <div className="checkout__container">
-        <h1 className="checkout__container--title">My order</h1>
-        <div className="checkout__content">
-          <div className="checkout__content--order">
-            <p>
-              <span>{currentDate}</span>
-              <span>
-                {state.cart.length}{" "}
-                {state.cart.length <= 1 ? "article" : "articles"}
-              </span>
-            </p>
-            <p>{sumCart()} USD</p>
+    <>
+      <SEO title="Checkout" />
+      <div className="checkout">
+        <div className="checkout__container">
+          <h1 className="checkout__container--title">My order</h1>
+          <div className="checkout__content">
+            <div className="checkout__content--order">
+              <p>
+                <span>{currentDate}</span>
+                <span>
+                  {state.cart.length}{" "}
+                  {state.cart.length <= 1 ? "article" : "articles"}
+                </span>
+              </p>
+              <p>{sumCart()} USD</p>
+            </div>
           </div>
+          {state.cart.map((product) => (
+            <OrderItem key={product.id} product={product} />
+          ))}
         </div>
-        {state.cart.map((product) => (
-          <OrderItem key={product.id} product={product} />
-        ))}
       </div>
-    </div>
+    </>
   );
 };
 
