@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -75,6 +76,9 @@ module.exports = {
         API: JSON.stringify(process.env.API),
         VERSION: JSON.stringify(process.env.VERSION),
       },
+    }),
+    new CopyPlugin({
+      patterns: [{ from: "robots.txt", to: "robots.txt" }],
     }),
   ],
   optimization: {
