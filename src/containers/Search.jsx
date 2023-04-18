@@ -64,7 +64,7 @@ const Search = ({ products }) => {
       <div className="search">
         <div className="search__container">
           <div className="search__input">
-            <img src={searchIcon} alt="search" />
+            <img src={searchIcon} alt="search" width="15" height="15" />
             <input
               placeholder="Search product"
               type="text"
@@ -102,7 +102,7 @@ const Search = ({ products }) => {
             <button onClick={() => filterToggle(filteredBy)}>
               {filteredBy}
             </button>
-            <img src={arrow} alt="arrow" />
+            <img src={arrow} alt="arrow" width="6" height="10.28" />
             <>
               {toggle && (
                 <ul>

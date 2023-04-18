@@ -53,14 +53,26 @@ const Header = () => {
   return (
     <nav className="main-nav" ref={refNav}>
       <button className="main-nav__button" onClick={handleMobileToggle}>
-        <img src={menu} alt="menu" className="main-nav__button-menu" />
+        <img
+          src={menu}
+          alt="menu"
+          className="main-nav__button-menu"
+          width="25"
+          height="21"
+        />
       </button>
       <div className="main-nav__left">
         {width & orderToggle ? (
           <h1 onClick={handleOrderToggle}>Shopping Cart</h1>
         ) : (
           <a href="/">
-            <img src={logo} alt="logo" className="main-nav__logo" />
+            <img
+              src={logo}
+              alt="logo"
+              className="main-nav__logo"
+              width="144"
+              height="30"
+            />
           </a>
         )}
         <ul>
@@ -104,7 +116,12 @@ const Header = () => {
               className="main-nav__right--shopping-cart"
               onClick={handleOrderToggle}
             >
-              <img src={shoppingCars} alt="shopping cart" />
+              <img
+                src={shoppingCars}
+                alt="shopping cart"
+                width="24"
+                height="25"
+              />
               {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
             </li>
           )}
